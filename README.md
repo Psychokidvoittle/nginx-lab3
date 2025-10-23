@@ -30,8 +30,8 @@
 
 ```bash
    docker-compose up -d --build
-   Открыть в браузере:
 ```
+Открыть в браузере:
 Главная страница: http://localhost:8082/index.php
 
 
