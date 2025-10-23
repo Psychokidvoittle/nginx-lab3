@@ -1,1 +1,92 @@
- 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись на экскурсию</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, button { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #007cba; color: white; border: none; cursor: pointer; }
+        button:hover { background: #005a87; }
+        .radio-group, .checkbox-group { display: flex; align-items: center; margin: 5px 0; }
+        .radio-group input, .checkbox-group input { width: auto; margin-right: 10px; }
+        .error { color: red; font-size: 14px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>📅 Запись на экскурсию (PHP версия)</h1>
+    
+    <form id="excursionForm" action="process.php" method="POST">
+        <div class="form-group">
+            <label for="name">👤 Ваше имя:</label>
+            <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">📧 Email:</label>
+            <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="date">📅 Дата экскурсии:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="route">🗺️ Маршрут экскурсии:</label>
+            <select id="route" name="route" required>
+                <option value="">-- Выберите маршрут --</option>
+                <option value="historical">Исторический центр города</option>
+                <option value="museum">Музейный квартал</option>
+                <option value="nature">Природный заповедник</option>
+                <option value="architectural">Архитектурный тур</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>🎧 Дополнительные услуги:</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="audioguide" name="audioguide" value="yes">
+                <label for="audioguide">Аудиогид (+200 руб.)</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>🌐 Язык экскурсии:</label>
+            <div class="radio-group">
+                <input type="radio" id="lang_ru" name="language" value="russian" checked>
+                <label for="lang_ru">Русский</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="lang_en" name="language" value="english">
+                <label for="lang_en">English</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="lang_de" name="language" value="german">
+                <label for="lang_de">Deutsch</label>
+            </div>
+        </div>
+
+        <button type="submit">📋 Записаться на экскурсию</button>
+    </form>
+
+    <div style="margin-top: 20px;">
+        <a href="index.php">На главную</a> | 
+        <a href="view.php">Посмотреть все записи</a>
+    </div>
+
+    <script>
+        document.getElementById('excursionForm').addEventListener('submit', function(e) {
+            const name = this.name.value;
+            const email = this.email.value;
+            const date = this.date.value;
+            const route = this.route.options[this.route.selectedIndex].text;
+            
+            alert(`Проверьте данные:\n\nИмя: ${name}\nEmail: ${email}\nДата: ${date}\nМаршрут: ${route}\n\nНажмите OK для отправки на сервер`);
+        });
+    </script>
+</body>
+</html> 
