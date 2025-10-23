@@ -22,14 +22,14 @@
 ⚙️ Как запустить проект
 Клонировать репозиторий:
 
-bash
-git clone https://github.com/Psychokidvoittle/nginx-lab3.git
-cd nginx-lab3
+```bash
+   git clone https://github.com/Psychokidvoittle/nginx-lab3.git
+   cd nginx-lab3
 Запустить контейнеры:
 
-bash
-docker-compose up -d --build
-Открыть в браузере:
+```bash
+   docker-compose up -d --build
+   Открыть в браузере:
 
 Главная страница: http://localhost:8082/index.php
 
